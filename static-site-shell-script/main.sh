@@ -1,26 +1,14 @@
 #! /bin/sh
 
-echo What is your site name?
-read SITE_NAME
-echo What is the background color?
-read BG_COLOR
-
-CSS="body { 
-	background-color: $BG_COLOR;
-}
-"
+for name in $*
+do
+	LIST="${LIST} $name"
+done
 
 HTML="<!DOCTYPE html>
 <html>
-	<head>
-		<title>${SITE_NAME}</title>
-		<style>
-			${CSS}
-		</style>
-	</head>
-
 	<body>		
-		<h1>$SITE_NAME</h1>		
+		<h1>$LIST</h1>		
 	</body>
 </html>"
 

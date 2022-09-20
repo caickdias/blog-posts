@@ -3,23 +3,27 @@ import React, { useState } from 'react';
 import './App.css';
 
 import LineChart from './components/charts/LineChart';
-import { UserData } from './data/dummyLine.js';
+import { UserData } from './data/fakeLine.js';
 
 function App() {
 
-  const [userData, setUserData] = useState({
+  const [data, setData] = useState({
     labels: UserData.map(data => data.year),
     datasets: [{
-        label: "Users Gained",
-        data: UserData.map(data => data.userGain),       
+        label: "Cars",
+        data: UserData.map(data => data.cars),       
         backgroundColor: ['red']     
-
-    }]
+    },
+    {
+      label: "Bicycles",
+      data: UserData.map(data => data.bicycles),       
+      backgroundColor: ['Blue']     
+  }]
   });
 
   return (
     <div className="App">
-      <LineChart chartData={userData} />
+      <LineChart chartData={data} />
     </div>
   );
 }
